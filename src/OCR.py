@@ -1,9 +1,6 @@
 import cv2
 import numpy as np
 import os
-import pytesseract
-
-pytesseract.pytesseract.tesseract_cmd = r'C:/Users/hoan.vo/AppData/Local/Programs/Tesseract-OCR/tesseract.exe'
 
 dict_char_to_int = {'I': '1', 'J': '3', 'A': '4',
                 'G': '6', 'S': '5', 'Z': '2',
@@ -114,6 +111,8 @@ def OCRLicensePlate(coco_model, license_plate_model, reader, image_path, output_
                     license_plate_crop_path = os.path.join(output_dir, f"license_plate_{class_vehicles[class_id]}_{lp_score}.jpg")
                     cv2.imwrite(license_plate_crop_path, license_plate_crop)
                     print(f"License plate cropped and saved at {license_plate_crop_path}")
+                    # Segmentation Characters
+                    
 
                     # Read license plate text
                     print("Reading license plate text...")
